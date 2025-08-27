@@ -8,6 +8,12 @@
 
 ---
 
+### Prerequired
+
+**_- Java 17_** (로컬 환경에 따라 수정 가능)<br>
+
+---
+
 ### Product Test
 
 ```sh
