@@ -1,6 +1,6 @@
 # LOAD BALANCING TEST
 
-### [Product Test]
+### Product Test
 
 ```
 http://load-balancing-test.o-r.kr
@@ -24,3 +24,9 @@ Hello I'm back1!
 Hello I'm back2!
 ...
 ```
+
+### Tech Stack
+
+**_- Spring Boot_**<br>
+**_- Nginx_**<br>
+**_- Docker_**
