@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  back1:
+    build: ./api-server
+    container_name: back1
+    environment:
+      - SERVER_NAME=back1
+    networks:
+      - load-balancing-test
+
+  back2:
+    build: ./api-server
+    container_name: back2
+    environment:
+      - SERVER_NAME=back2
+    networks:
+      - load-balancing-test
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - back1
+      - back2
+    networks:
+      - load-balancing-test
+
+networks:
+  load-balancing-test:
+    driver: bridge
