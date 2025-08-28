@@ -1,3 +1,5 @@
+# $ docker-compose -f docker-compose.local.yaml up --build // Build and start containers on local
+
 version: "3.8"
 
 services:

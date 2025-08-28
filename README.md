@@ -27,7 +27,7 @@ $ curl http://load-balancing-test.o-r.kr
 ```sh
 $ cd api-server
 $ ./gradlew clean build
-$ docker-compose up --build
+$ docker-compose -f docker-compose.local.yaml up --build
 $ curl http://localhost
 ```
 

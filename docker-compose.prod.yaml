@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  back1:
+    image: withbbang/load-balancing-test-back
+    container_name: back1
+    environment:
+      - SERVER_NAME=back1
+      - TZ=Asia/Seoul
+    volumes:
+      - [depends on environments...]
+    networks:
+      - load-balancing-test
+
+  back2:
+    image: withbbang/load-balancing-test-back
+    container_name: back2
+    environment:
+      - SERVER_NAME=back2
+      - TZ=Asia/Seoul
+    volumes:
+      - [depends on environments...]
+    networks:
+      - load-balancing-test
+
+  nginx:
+    image: withbbang/load-balancing-test-nginx
+    container_name: nginx
+    environment:
+      - TZ=Asia/Seoul
+    volumes:
+      - [depends on environments...]
+    ports:
+      - "[depends on environments...]:80"
+    depends_on:
+      - back1
+      - back2
+    networks:
+      - load-balancing-test
+
+networks:
+  load-balancing-test:
+    driver: bridge
